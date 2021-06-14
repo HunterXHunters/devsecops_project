@@ -9,6 +9,16 @@ pipeline{
     stages{
         //specifies various stage with in stage
 
+        // Stage 1: Check Git Secrets
+
+        stage("Check-Git-Secrets"){
+            steps{
+                sh 'rm trufflehog || true'
+                sh 'docker run gesellix/trufflehog --json https://github.com/HunterXHunters/webapp.git > tufflehog'
+                sh 'cat tufflehog'
+            }
+        }
+
         // stage 1: Build
         stage("Build"){
             steps{
