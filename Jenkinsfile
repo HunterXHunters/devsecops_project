@@ -6,6 +6,12 @@ pipeline{
 
     }
 
+    stages{
+        //specifies various stage with in stage
+
+        // Stage 1: Check Git Secrets
+
+
 
         // stage 1: Build
         stage("Build"){
